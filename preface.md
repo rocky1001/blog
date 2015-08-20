@@ -2,7 +2,7 @@ Title: 个人博客之序
 Date: 2015-08-18 10:30
 Category: About
 Tags: preface
-Summary: 我的个人博客之序.
+Summary: 我的个人博客之序([rockychi1001@gmail.com](mailto:rockychi1001@gmail.com "my email")).
 
 平时工作中，为了解决各种问题，通过google和百度，从很多人的很多博客中收益颇多。  
 受益当然不仅仅是在工作上，很多人在技术博客中写的对人生，对生活的一些分享，也对我的生活方面有一些启发。
@@ -20,3 +20,6 @@ Summary: 我的个人博客之序.
 二是希望一些解决问题的思考过程和解决方案能够抛砖引玉；  
 
 以上，是我的第一篇正式博客，也是一个序言。
+
+PS:为了减少维护工作量,没有开放评论区.如果有任何建议或者问题,欢迎直接email给我:  
+[rockychi1001@gmail.com](mailto:rockychi1001@gmail.com "")
