@@ -1,21 +1,21 @@
-pelican-blueidea
+pelican-coderocks
 ================
 
-A theme for Pelican inspired by the default theme notmyidea.
+A theme for Pelican inspired by the theme [blueidea](https://github.com/blueicefield/pelican-blueidea).
 
 Features
 --------
 * Ability to hide pages from the top menu.
 * Ability to hide categories from the top menu.
 * Ability to display categories as a submenu.
-* Ability to display a search form which exploits the [DuckDuckGo](https://duckduckgo.com/) search engine.
+* Ability to display a search form which exploits the Google search engine.
 * Ability to sort pages using a specific attribute like the date or any additionnal attribute.
 * Ability to hide the author's name or the article category in the articles info.
-* Icons for the following social networks: Facebook, Github, Google+, LastFM, LinkedIN, RSS/ATOM, Twitter, Vimeo and Youtube.
+* Icons for the following social networks: Facebook, Github, Google+, LastFM, LinkedIN, RSS/ATOM, Twitter, Vimeo, Youtube and Weibo.
 
 Preview
 -------
-![Screenshot-1](https://raw.github.com/blueicefield/pelican-blueidea/master/screenshot-1.png)
+![Screenshot-1](https://raw.githubusercontent.com/rocky1001/blog/master/themes/coderocks/screenshot-1.png)
 
 Settings
 --------

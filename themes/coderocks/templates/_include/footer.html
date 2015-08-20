@@ -1,0 +1,13 @@
+<p>
+    {% set years = dates|groupby('date.year')|sort(reverse=False) %}
+    {% set sinceYear = years|first|first|default('2014') %}
+    {% set toYear = years|last|first|default('2014') %}
+    Copyright &copy; {% if sinceYear == toYear %} {{ sinceYear }}
+        {% else %}
+        {{ sinceYear }}-{{ toYear }} {% endif%} - {{ AUTHOR }} -
+    <span>
+        Powered by <a href="http://getpelican.com/">Pelican</a>.
+        Theme <a href="https://github.com/rocky1001/blog/tree/master/themes/coderocks">coderocks</a>,
+        inspired by the blueidea theme.
+    </span>
+</p>
