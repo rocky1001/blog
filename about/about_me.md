@@ -3,6 +3,7 @@ Date: 2015-08-18 14:33
 Category: About
 Tags: about me
 Summary: 我的个人简介,主要是学历,工作经历,兴趣等.
+Slug: about-me
 
 简单介绍下自己，只为有兴趣的看官了解本人。  
 

@@ -3,6 +3,7 @@ Date: 2015-08-19 17:02
 Category: Work
 Tags: text extraction, tools, test, python, java
 Summary: 对于几种比较知名的网页正文内容提取工具的测试和对比记录.
+Slug: html-text-extraction-tools-test
 
 接前一篇概述。
 

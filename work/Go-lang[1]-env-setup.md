@@ -3,6 +3,7 @@ Date: 2015-08-19 17:06
 Category: Work
 Tags: go, env, setup
 Summary: 摘录了《Go语言编程》中对于Go env的安装配置内容.
+Slug: Go-lang[1]-env-setup
 
 早就听说了go lang的大名，最近有时间研究一下。
 

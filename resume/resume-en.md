@@ -3,6 +3,7 @@ Date: 2015-08-18 17:37
 Category: Resume
 Tags: resume
 Summary: My resume in English.
+Slug: rocky-resume-in-English
 
 **E-Mail:** [rockychi1001@gmail.com](mailto:rockychi1001@gmail.com "my email")  
 **Location:** Xi’an, China

@@ -1,8 +1,9 @@
-Title: leetcode[2]-median_of_two_sorted_arrays
+Title: leetcode[2]-median-of-two-sorted-arrays
 Date: 2015-08-19 16:44
 Category: Snippets
 Tags: leetcode, python, java
 Summary: leetcode刷题记录2-median_of_two_sorted_arrays
+Slug: leetcode[2]-median-of-two-sorted-arrays
 
 ##原题
 leetcode第二题，median of two sorted arrays，难度为困难，通过率为：17.6%

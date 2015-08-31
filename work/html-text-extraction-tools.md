@@ -3,6 +3,7 @@ Date: 2015-08-19 16:52
 Category: Work
 Tags: text extraction, tools, python, java
 Summary: 现在需要将一些网页中的正文内容提取出来。即，将URL对应的HTML源码中的“正文内容”剥离出来。首先想到的，就是找一找有没有现成的网页正文内容提取工具。
+Slug: html-text-extraction-tools
 
 ##有哪些
 

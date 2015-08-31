@@ -3,6 +3,7 @@ Date: 2015-08-20 10:12
 Category: Work
 Tags: netease, microblog, api
 Summary: 介绍如何使用网易微博api进行开发.
+Slug: netease-microblog-dev
 
 之前做过与网易微博对接的一个项目，使用了网易微博提供的java版本的api，在这里做个记录和分享。  
 当然,网易微博,腾讯微博等目前都属于日薄西山的产品了,再讨论与这两个微博的对接意义不大,  

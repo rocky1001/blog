@@ -3,6 +3,7 @@ Date: 2015-08-31 13:22
 Category: VPS
 Tags: vps nginx security
 Summary: 使用Nginx发布web服务时的安全性配置.
+Slug: security-configuration-of-nginx-web-service
 
 ##前言
 

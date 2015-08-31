@@ -3,6 +3,7 @@ Date: 2015-08-19 17:15
 Category: Work
 Tags: go, hello world
 Summary: Go lang: hello world.
+Slug: Go-lang[2]-hello-world
 
 ##第一个go lang程序——hello world
 

@@ -1,8 +1,9 @@
-Title: leetcode[1]-two_sum
+Title: leetcode[1]-two-sum
 Date: 2015-08-19 16:37
 Category: Snippets
 Tags: leetcode, python, java
 Summary: leetcode刷题记录1-two_sum
+Slug: leetcode[1]-two-sum
 
 ##原题
 

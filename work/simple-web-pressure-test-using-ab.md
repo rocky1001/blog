@@ -3,6 +3,7 @@ Date: 2015-08-20 09:21
 Category: Work
 Tags: ab, pressure test, web
 Summary: 介绍如何使用ab进行简单的web压力测试.
+Slug: simple-web-pressure-test-using-ab
 
 apache ab工具的使用教程在网上一搜一大把，因此使用该工具时，其参数的详细解释和用法就不在这里罗嗦了。
 
