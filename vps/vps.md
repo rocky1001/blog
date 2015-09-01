@@ -1,6 +1,6 @@
 Title: 我的VPS
 Date: 2015-08-19 13:55
-Category: VPS
+Category: vps
 Tags: vps
 Summary: 我的VPS的安全配置,邀请链接等.
 Slug: my-vps

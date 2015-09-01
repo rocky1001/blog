@@ -1,6 +1,6 @@
 Title: 个人简介
 Date: 2015-08-18 14:33
-Category: About
+Category: about
 Tags: about me
 Summary: 我的个人简介,主要是学历,工作经历,兴趣等.
 Slug: about-me

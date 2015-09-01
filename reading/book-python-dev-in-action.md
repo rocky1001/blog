@@ -1,6 +1,6 @@
 Title: Python开发实战
 Date: 2015-08-31 14:47
-Category: Reading
+Category: reading
 Tags: python, dev, book
 Summary: Python开发实战读书心得.
 Slug: book-python-dev-in-action

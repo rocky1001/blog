@@ -1,6 +1,6 @@
 Title: 好东西分享
 Date: 2015-08-31 16:22
-Category: Others
+Category: others
 Tags: share, good things, ss
 Summary: 分享一些好东西,提供直接下载
 Slug: sharing-good-things

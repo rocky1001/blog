@@ -1,6 +1,6 @@
 Title: Go lang初试[2]-hello world
 Date: 2015-08-19 17:15
-Category: Work
+Category: work
 Tags: go, hello world
 Summary: Go lang: hello world.
 Slug: Go-lang[2]-hello-world

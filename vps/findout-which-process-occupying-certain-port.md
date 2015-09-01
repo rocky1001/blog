@@ -1,6 +1,6 @@
 Title: 查询系统端口占用情况
 Date: 2015-09-01 12:43
-Category: VPS
+Category: vps
 Tags: vps, port ,occupy, linux, windows
 Summary: 查询OS下的端口占用情况.
 Slug: findout-which-process-occupying-certain-port

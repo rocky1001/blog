@@ -1,6 +1,6 @@
 Title: Go lang初试[1]-安装
 Date: 2015-08-19 17:06
-Category: Work
+Category: work
 Tags: go, env, setup
 Summary: 摘录了《Go语言编程》中对于Go env的安装配置内容.
 Slug: Go-lang[1]-env-setup

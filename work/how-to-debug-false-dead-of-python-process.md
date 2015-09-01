@@ -1,6 +1,6 @@
 Title: Python进程假死如何debug
 Date: 2015-08-19 16:30
-Category: Work
+Category: work
 Tags: python, false dead, debug
 Summary: linux下面使用python编写的一个service挂死了,进程写入的日志文件不更新,所有发到该进程的消息都没有响应,这时该如何debug?
 Slug: how-to-debug-false-dead-of-python-process

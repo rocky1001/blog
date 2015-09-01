@@ -1,6 +1,6 @@
 Title: 个人博客之序
 Date: 2015-08-18 10:30
-Category: About
+Category: about
 Tags: preface
 Summary: 我的个人博客之序([rockychi1001@gmail.com](mailto:rockychi1001@gmail.com "my email")).
 Slug: preface

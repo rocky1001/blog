@@ -1,6 +1,6 @@
 Title: 使用ab进行简单的压力测试
 Date: 2015-08-20 09:21
-Category: Work
+Category: work
 Tags: ab, pressure test, web
 Summary: 介绍如何使用ab进行简单的web压力测试.
 Slug: simple-web-pressure-test-using-ab

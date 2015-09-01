@@ -1,6 +1,6 @@
 Title: Resume
 Date: 2015-08-18 17:37
-Category: About
+Category: about
 Tags: resume
 Summary: My resume in English.
 Slug: rocky-resume-in-English

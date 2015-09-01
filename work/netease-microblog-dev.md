@@ -1,6 +1,6 @@
 Title: 网易微博api应用与开发
 Date: 2015-08-20 10:12
-Category: Work
+Category: work
 Tags: netease, microblog, api
 Summary: 介绍如何使用网易微博api进行开发.
 Slug: netease-microblog-dev

@@ -1,6 +1,6 @@
 Title: 监测VPS的运行状态
 Date: 2015-09-01 09:45
-Category: VPS
+Category: vps
 Tags: vps, status, monitor
 Summary: 监测VPS的运行状态(CPU,内存,系统负载等等).
 Slug: monitor-vps-running-status

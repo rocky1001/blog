@@ -1,6 +1,6 @@
 Title: 关于Ubuntu版本的选择
 Date: 2015-08-31 14:09
-Category: Work
+Category: work
 Tags: ubuntu, release, lts
 Summary: 关于Ubuntu版本的选择.
 Slug: about-Ubuntu-lts-release

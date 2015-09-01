@@ -1,6 +1,6 @@
 Title: 我的树莓派2
 Date: 2015-08-31 17:03
-Category: RPi
+Category: rpi
 Tags: raspberry pi
 Summary: 介绍我的树莓派.
 Slug: my-raspberry-pi-2
