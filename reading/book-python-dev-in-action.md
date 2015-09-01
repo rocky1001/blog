@@ -6,7 +6,7 @@ Summary: Python开发实战读书心得.
 Slug: book-python-dev-in-action
 
 2015年8月22号在西安嘉汇汉唐书城购买--主要是有公司发的图书卡,不然现在去实体店买技术书籍的人应该很少了 :)  
-借用亚马逊的封面图片:
+借用亚马逊的封面图片:  
 ![Python开发实战 封面](http://ec8.images-amazon.com/images/I/415FXzkPlWL._SX446_BO1,204,203,200_.jpg "Python开发实战")
 
 计划花两周时间读完,目前已经阅读了三分之二,先写篇占位符.

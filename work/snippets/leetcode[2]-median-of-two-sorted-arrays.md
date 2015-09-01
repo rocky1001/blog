@@ -1,6 +1,6 @@
 Title: leetcode[2]-median-of-two-sorted-arrays
 Date: 2015-08-19 16:44
-Category: Snippets
+Category: Work
 Tags: leetcode, python, java
 Summary: leetcode刷题记录2-median_of_two_sorted_arrays
 Slug: leetcode[2]-median-of-two-sorted-arrays
