@@ -191,3 +191,38 @@ server {
 }
 ````
 
+###fail2ban 相关常用操作
+
+查看所有生效的jail配置  
+````
+>fail2ban-client status
+Status
+|- Number of jail:      9
+`- Jail list:           nginx-dos, nginx-noproxy, nginx-noscript, ssh-ddos, mysqld-auth, ssh, nginx-badbots, nginx-req-limit, nginx-http-auth
+````  
+
+查看特定的jail当前状态  
+````
+>fail2ban-client status nginx-req-limit
+Status for the jail: nginx-req-limit
+|- filter
+|  |- File list:        /var/log/nginx/error.log 
+|  |- Currently failed: 1
+|  `- Total failed:     4
+`- action
+   |- Currently banned: 0
+   |  `- IP list:
+   `- Total banned:     1
+````  
+
+unban特定的jail里面ip 
+````
+fail2ban-client set [jail name] unbanip [ip address]
+eg: fail2ban-client set nginx-req-limit unbanip 1.2.3.4
+````  
+
+查看iptables对指定IP的策略:  
+````
+>iptables -L -n|grep "1.2.3.4"
+REJECT     all  --  1.2.3.4          0.0.0.0/0            reject-with icmp-port-unreachable
+````

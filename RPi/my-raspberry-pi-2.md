@@ -9,7 +9,7 @@ Slug: my-raspberry-pi-2
 DHT11温湿度传感器一个, 因为家里有个旧的闲置USB摄像头,就暂时没有买摄像头.
 
 目前已经用一张旧的8G tf卡刷了OpenELEC系统,并刷入了足够多的国内视频插件,  
-将树莓派做成了一个机顶盒使用.
+将树莓派做成了一个机顶盒使用(会另外写篇blog[写篇blog](<{filename}/rpi/make-rpi-home-media-center.md> "make-rpi-home-media-center")描述下详细过程).
 
 还另外准备了16G的tf卡,刷入了最新的raspbian系统,准备进行DHT11的相关开发.
 
@@ -22,12 +22,12 @@ DHT11温湿度传感器一个, 因为家里有个旧的闲置USB摄像头,就暂
 2. 一个HDMI接口,四个USB2.0接口,一个百兆LAN口,一个3.5mm音频口
 3. 40个GPIO口(包括3.3v,5v电压,接地等接口)    
 
-以上硬件运行功率仅有3W.
+运行功率仅有3W.
 
 ###软件
 1. 官方[raspbian](https://www.raspberrypi.org/downloads/raspbian/ "raspbian")(based on Debian)
 2. 微软[Windows 10 IoT Core](http://ms-iot.github.io/content/en-US/Downloads.htm "Windows 10 IoT Core")
-3. Ubuntu和其他专用OS(OpenELEC, OSMC等用于多媒体中心的专用系统)--参见[这里](https://www.raspberrypi.org/downloads/ "这里")  
+3. Ubuntu和其他专用OS(OpenELEC, OSMC等用于多媒体中心的专用系统)--参见[这里](https://www.raspberrypi.org/downloads/ "其他OS")  
 
 
 ##树莓派能干什么  

@@ -51,15 +51,20 @@ licstar：NReadability http://t.cn/zYewPMn
 
 不过，这个博主的博客最近挂掉了，我另外找到了这个文章的pdf版本（下面所有列表内容版权归属于tomaz kovacic），
 
-现在将关键内容摘录一下：  
-![正文提取算法]({filename}/images/work/text-extraction-algorithms-list.png "正文提取算法列表")
-
+现在将关键内容摘录一下： 
+<div class="picture">
+![正文提取算法列表]({filename}/images/work/text-extraction-algorithms-list.png "正文提取算法列表")
+</div>  
 
 上表列出了一些TE(text extraction)算法及实现了对应算法的工具（有部分工具是需要购买的）  
-![正文提取算法]({filename}/images/work/text-extraction-algorithms-result1.png "正文提取算法测试结果1")  
-![正文提取算法]({filename}/images/work/text-extraction-algorithms-result2.png "正文提取算法测试结果2")
+<div class="picture">
+![正文提取算法测试结果1]({filename}/images/work/text-extraction-algorithms-result1.png "正文提取算法测试结果1")  
+</div>  
+<div class="picture">  
+![正文提取算法测试结果2]({filename}/images/work/text-extraction-algorithms-result2.png "正文提取算法测试结果2")  
+</div> 
 
-上表是对各个工具的测试结果。各项指标已经具有相当的说服力了，这里就不在赘述了。
+上表是对各个工具的测试结果。各项指标已经具有相当的说服力了，这里就不在赘述了。  
 
 ##选哪些
 
