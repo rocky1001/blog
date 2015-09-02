@@ -52,7 +52,7 @@
         </ul>
         {% if DISPLAY_SEARCH_FORM -%}
         <form id="search" action="#"
-              onsubmit="javascript:window.open('https://duckduckgo.com/?q='+document.getElementById('keywords').value+'+site:{{ SITEURL }}');">
+              onsubmit="javascript:window.open('https://www.google.com/search?q='+document.getElementById('keywords').value+'+site:{{ SEARCH_SITEURL }}');">
             <input id="keywords" type="text"/>
         </form>
         {% endif %}
