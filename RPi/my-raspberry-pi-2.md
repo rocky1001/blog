@@ -1,17 +1,19 @@
 Title: 我的树莓派2
 Date: 2015-08-31 17:03
 Category: rpi
-Tags: raspberry pi
+Tags: rpi
 Summary: 介绍我的树莓派.
 Slug: my-raspberry-pi-2
 
 2015年8月中旬忍不住诱惑,剁手树莓派2一台(wifi网卡,tf卡,风扇等小配件这里略过不表),   
+
 DHT11温湿度传感器一个, 因为家里有个旧的闲置USB摄像头,就暂时没有买摄像头.
 
 目前已经用一张旧的8G tf卡刷了OpenELEC系统,并刷入了足够多的国内视频插件,  
-将树莓派做成了一个机顶盒使用(会另外写篇blog[写篇blog](<{filename}/rpi/make-rpi-home-media-center.md> "make-rpi-home-media-center")描述下详细过程).
 
-还另外准备了16G的tf卡,刷入了最新的raspbian系统,准备进行DHT11的相关开发.
+将树莓派做成了一个机顶盒使用(会另外[写篇blog](<{filename}/rpi/make-rpi-home-media-center.md> "make-rpi-home-media-center")描述下详细过程).
+
+还另外准备了16G的tf卡,刷入了最新的raspbian系统,准备进行摄像头以及DHT11温湿度传感器的相关开发.
 
 ##树莓派是什么
 

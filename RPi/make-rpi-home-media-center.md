@@ -1,11 +1,18 @@
 Title: 将树莓派2打造为家庭多媒体中心(电视盒子)
 Date: 2015-09-02 08:30
 Category: rpi
-Tags: raspberry pi, home media center
+Tags: rpi, home media center, openelec
 Summary: 介绍如何将树莓派2改造为家庭多媒体中心.
 Slug: make-rpi-home-media-center
 
 将树莓派改造成电视盒子,应该算是入门级别的应用,因为使用现成的OS实在是太简单了.
+
+2015-09更新:
+
+由于一些插件更新不是很及时,  
+使用树莓派观看在线视频的体验不是很好(国内很多源无法正常使用),
+
+但是非外网环境的使用体验还是ok的,例如播放USB设备的视频等.
 
 ##选什么OS
 
@@ -32,7 +39,7 @@ Slug: make-rpi-home-media-center
 
 1. 在设置中,修改系统语言为中文(如果不修改后面安装的中文视频网站插件几乎都会因为乱码无法使用) 
  
-    这里貌似还有个小bug,在修改系统语言之前,需要先设置系统字体为arial,不然的话语言修改不会生效.
+    这里貌似还有个小bug,**在修改系统语言之前,需要先设置系统字体为arial**,不然的话语言修改不会生效.
     
 2. 安装各种在线视频插件  
     我安装的一些视频插件(国内的优酷等视频网站,百度云等网盘,国外主要是youtube等)可以点[这里]({attach}/files/video-addons.zip)下载到. 
@@ -45,27 +52,29 @@ Slug: make-rpi-home-media-center
 
     配置有线,无线网络连接;设置允许SSH连接(默认端口22,用户名root,密码openelec)  
     
-    推荐打开SSH连接方式,这样可以很方便地在headless的情况下,用各种ssh client连接到rpi的openelec系统中,方便地进行各种配置修改(后面会详细说).
+    推荐打开SSH连接方式,这样可以很方便地在headless的情况下,
+    
+    用各种ssh client连接到rpi的openelec系统中,方便地进行各种配置修改(后面会详细说).
 
 
 4. 设置无线播放方式
 
     系统支持UPnP(DLNA)和AirPlay播放方式.
 
-5. 设置允许UPnP控制
+5. 设置允许HTTP控制
 
     这样就可以方便地使用手机上的app遥控操作了.  
-    实测可用的app有两款:Yatse, Kodi Remote
+    实测可用的app有两款:Yatse(较为好用), Kodi Remote
 
 以上设置全部结束后,现在rpi上面的openelec已经可以:  
 
 * 播放USB设备中的媒体
 * 播放samba server中的媒体
-* 使用手机,pad的DLNA或AirPlay功能播放媒体
+* 使用DLNA或AirPlay功能播放媒体
 * 播放在线视频网站的视频
-* 播放百度云上面的视频(需要进行账号设置)  
-     
- 
+* 播放百度云上面的视频(仅需要进行账号设置)    
+  
+  
 ##Headless Opt on OpenELEC 
 
 如前所述,打开了SSH连接开关后,可以使用:
@@ -74,9 +83,13 @@ Slug: make-rpi-home-media-center
 
 连接OpenELEC系统.
 
-我之所以想要这么做,主要是因为rpi连接家里的wifi总是有问题,在OpenELEC设置界面上点击wifi后无法弹出密码输入窗口,导致总是连不上wifi;
+我之所以想要这么做,主要是因为rpi连接家里的wifi总是有问题,
 
-于是,就转而先用网线将rpi与路由器连接,从路由器控制台查看分配到的ip,再用ssh连接rpi的OpenELEC,在命令行下直接进行wifi设置.
+在OpenELEC设置界面上点击wifi后无法弹出密码输入窗口,导致总是连不上wifi;
+
+于是,就转而先用网线将rpi与路由器连接,从路由器控制台查看分配到的ip,
+
+再用ssh连接rpi的OpenELEC,在命令行下直接进行wifi设置.
 
 ###登录
 
@@ -112,6 +125,8 @@ OpenELEC wifi配置文件存储在这个路径:
 ````  
 
     *A表示已知用户名和密码的wifi; R表示当前正在使用的wifi
+    后面两列分别是ssid和service id.
+
     
 * 在/storage/.cache/connman路径下, nano/vi \<ssid>.config file   
     新建一个未知wifi的配置文件, 文件内容如下:  
