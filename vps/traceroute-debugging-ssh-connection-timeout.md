@@ -13,7 +13,7 @@ Slug: traceroute-debugging-ssh-connection-timeout
 
 Connection timed out.
 
-##定位查找
+##基础信息定位
 
 1. 首先ping VPS,可以正常ping通,延迟结果跟平时没什么两样;
 2. 然后访问80端口的web应用(就是这个blog app了),也是**正常**的;
@@ -28,7 +28,7 @@ Connection timed out.
 
 为什么建立SSH的TCP包会被丢掉以及在哪里被丢掉的.
 
-##从路由层面查找
+##路由信息定位
 
 这时候就要用到路由追踪工具traceroute了.
 
@@ -163,13 +163,11 @@ traceroute to [my vps ip] ([my vps ip]), 30 hops max, 40 byte packets
 
 digitalocean-ic-306499-sjo-b21.c.telia.net
 
-这个路由之后才发生了丢失,
-
-现在基本可以肯定问题出现在VPS供应商侧.
+这个路由之后, 在第15跳发生了问题(过去的包或者回来的包被丢了).
 
 ##其他验证
 
-在我的好朋友@PengLi的帮助下--我借用了他的VPS,**同一家供应商的不同机房**,
+在我的朋友@PengLi的帮助下(顺便表示感谢!)--我借用了他的VPS,**同一家供应商的不同机房**,
 
 从我这边的同一出口IP,traceroute到他的VPS,发现可以正常连接,下面是log:
 
@@ -196,6 +194,18 @@ traceroute to [PengLi vps ip] ([PengLi vps ip]), 30 hops max, 40 byte packets
 18  [PengLi vps ip] ([PengLi vps ip])  424.674 ms  3404.148 ms  28794.190 ms
 ````
 
-在此对@PengLi的帮助表示感谢!
+##沟通及结果
 
-下面我要拿着上述确凿的证据去跟VPS供应商的customer service PK了!
+拿着上述log去跟VPS供应商的customer service进行沟通, 对方态度和反应速度(考虑到时差)都还不错,
+
+不过结论只有一句话: 就是VPS自己防火墙的问题.
+
+可是在我关闭了ufw后,SSH仍然无法连接,这是我百思不得其解的地方.
+
+最后,本着不折腾的原则,更换了一个SSH的端口,居然就可以正常连接了...
+
+在网上发帖求助, 有人说可能是GFW针对IP(包括端口)进行了屏蔽,
+
+但是我觉得这么小的VPS(不只是规模小, 流量更是小的可怜)应该不会被GFW这么轻易看上.
+
+不管怎样, SSH连接失败的问题至此算是解决了吧.
