@@ -7,6 +7,7 @@ Slug: hbase-operation-in-mapreduce
 
 之前有blog介绍过了HBase的rowkey设计和column索引等内容,  
 这篇blog主要介绍HBase应用的一个小实例--在MapReduce代码中读写HBase.
+主要通过调用hbase的API实现.
 
 ##基本数据流程
 
@@ -109,9 +110,9 @@ public class HBaseOpt {
 
     }
 
-    public void put(String key, String cf, String col, String val) {
+    public void put(String key, String cf, Object col, String val) {
         Put put = new Put(key.getBytes());
-        put.add(cf.getBytes(), col.getBytes(), val.getBytes());
+        put.add(cf.getBytes(), String.valueOf(col).getBytes(), val.getBytes());
         try {
             table.put(put);
 //            System.out.print("put.toString()=" + put.toString());
@@ -120,7 +121,7 @@ public class HBaseOpt {
         }
     }
 
-    // Cell value
+    // Column value
     public String get(String key, String cf, String col) {
         Get get = new Get(key.getBytes());
         get.addColumn(cf.getBytes(), col.getBytes());
@@ -137,8 +138,41 @@ public class HBaseOpt {
         return null;
     }
 
+    // All column value under specified family
+    public TreeMap<String, String> get(String key, String cf) {
+        Get get = new Get(key.getBytes());
+        get.addFamily(cf.getBytes());
+        TreeMap<String, String> resultMap = new TreeMap<String, String>(new IdReverseComparator());
+        try {
+            Result rs = table.get(get);
+            TreeMap<byte[], byte[]> tmpMap = (TreeMap) rs.getFamilyMap(cf.getBytes());
+            if (null != tmpMap) {
+                for (byte[] tmp : tmpMap.keySet()) {
+//                    System.out.println("k:col(" + key + ":" + new String(tmp) + ")=" + new String(tmpMap.get(tmp)));
+                    resultMap.put(new String(tmp), new String(tmpMap.get(tmp)));
+                }
+                return resultMap;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public void delete(String key) {
         Delete del = new Delete(key.getBytes());
+//        del.deleteColumn();
+        try {
+            table.delete(del);
+//            System.out.print("put.toString()=" + put.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(String key, String cf, String col) {
+        Delete del = new Delete(key.getBytes());
+        del.deleteColumn(cf.getBytes(), col.getBytes());
         try {
             table.delete(del);
 //            System.out.print("put.toString()=" + put.toString());
@@ -158,6 +192,7 @@ public class HBaseOpt {
             for (Result rs = scanner.next(); rs != null; rs = scanner.next()) {
                 byte[] key = rs.getRow();
                 byte[] value = rs.getValue(cf.getBytes(), col.getBytes());
+
                 if (null != value) {
 //                    System.out.print("k:cf:col=" + new String(value));
                     resultMap.put(new String(key), new String(value));
@@ -170,23 +205,54 @@ public class HBaseOpt {
         return resultMap;
     }
 
+    public Map<String, TreeMap<byte[], byte[]>> scan(String startKey, String endKey, String cf) {
+        Scan scan = new Scan(startKey.getBytes(), endKey.getBytes());
+        scan.addFamily(cf.getBytes());
+        scan.setCaching(50);
+        scan.setBatch(50);
+        HashMap<String, TreeMap<byte[], byte[]>> resultMap = new HashMap<String, TreeMap<byte[], byte[]>>(50);
+        try {
+            ResultScanner scanner = table.getScanner(scan);
+            for (Result rs = scanner.next(); rs != null; rs = scanner.next()) {
+                byte[] key = rs.getRow();
+                TreeMap<byte[], byte[]> tmpMap = (TreeMap) rs.getFamilyMap(cf.getBytes());
+                if (null != tmpMap) {
+//                    System.out.println("k:col(" + key + ":" + new String(tmp) + ")=" + new String(tmpMap.get(tmp)));
+                    resultMap.put(new String(key), tmpMap);
+                }
+            }
+            return resultMap;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return resultMap;
+    }
+
 
     // For local test
     public static void main(String[] args) {
-        String key = "a";
+        String key = "999728183444171579213_mac";
         String cf = "d";
-        String col = "id";
-        // 传入HSlave hostname给zookeeper
-        HBaseOpt hbase = HBaseOpt.getInstance("A, B, C", "test");
-//        hbase.put(key, cf, col, "test_value_for_key_a");
+        String col = "uid";
+        HBaseOpt hbase = HBaseOpt.getInstance("datanode06,datanode07,datanode08", "uniid2id_test");
+//        hbase.put(key, cf, col, "321_z");
 //        System.out.println(hbase.get(key, cf, col));
 
         // scan by key range
-        Map<String, String> resultMap = hbase.scan("321", "321~", cf, col);
-        for (String keyTmp : resultMap.keySet()) {
-            System.out.println(keyTmp);
-            System.out.println(resultMap.get(keyTmp));
-            System.out.println("------------");
+//        Map<String, String> resultMap = hbase.scan("321", "321~", cf, col);
+    }
+}
+
+class IdReverseComparator implements Comparator<String> {
+
+    @Override
+    public int compare(String id1, String id2) {
+        if (Integer.valueOf(id1) > Integer.valueOf(id2)) {
+            return -1;
+        } else if (Integer.valueOf(id1) < Integer.valueOf(id2)) {
+            return 1;
+        } else {
+            return 0;
         }
     }
 }
