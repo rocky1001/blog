@@ -38,20 +38,26 @@ Redis提供了五种基础数据结构:
 
 在拿到执行结果后仍然放回缓冲区, 由调用的地方遍历缓冲区的数据进行查看.
 
+另外, 在redis 2.8.0版本中, 新增了SCAN命令, 可以按照指定数目(也可以指定key符合的pattern), 遍历查询所有key,
+
+对于scan, 应该是之前KEYS命令的一个生产环境可用版本, 
+
+因为keys命令(可以带通配符*进行模糊key查询)返回的是所有key的列表, 
+
+在返回的列表极大时, 有可能会造成redis server响应延迟, 因此不建议在生产环境使用,
+
+现在有了scan后, 就可以很方便地遍历整库数据了.
+
 ##测试
 
-###环境
+###测试环境
 redis版本: 2.8.16
 
 redis server: Intel E5-2620@2.00GHz 24 core, 48GB Ram
 
 redis-py版本: 2.10.3
 
-###原始数据
-
-总行数:  246,455 行
-
-###代码
+###get测试代码
 
 ````python
 pool = redis.ConnectionPool(host='172.x.x.x', port=6379, db=1)
@@ -75,20 +81,81 @@ end_time = time.time()
 print 'Duration:{}'.format(end_time - start_time)
 ````
 
-###结果
+###get测试结果
 
-####不使用pipeline,直接get查询
+####不使用pipeline
 
 时间长到无法忍受, 在经过10分钟漫长的等待后, 最终不得不kill掉进程...
 
-####使用pipeline,再调用get查询
+####使用pipeline
 
-耗时: 22.121999979秒
+scan查询总行数: 246,455 行
 
-####使用pipeline,查看批量查询结果
+Duration:22.121999979 秒
+
+####使用pipeline,查看批量查询结果代码
 
 ````python
 result = redis_pipe.execute()
 for data in result:
     print data
 ````
+
+###scan测试代码
+
+````python
+def scan_by_instance(_redis_ins, _count=1000):
+    start_time = time.time()
+    start_index = 0
+    
+    new_index, scan_result_l = _redis_ins.scan(cursor=start_index, count=_count)
+    # print new_index, scan_result_l
+    while new_index != start_index:
+        new_index, scan_result_l = _redis_ins.scan(cursor=new_index, count=_count)
+        # print new_index, scan_result_l
+
+    end_time = time.time()
+    print 'Duration:{}'.format(end_time - start_time)
+    
+    
+def scan_by_pipe(_redis_pipe, _count=1000):
+    start_time = time.time()
+    start_index = 0
+
+    _redis_pipe.scan(cursor=start_index, count=_count)
+    # pipeline.execute will return a list, so we need index 0 to get the real result
+    new_index, scan_result_l = _redis_pipe.execute()[0]
+    # print new_index, scan_result_l
+    while new_index != start_index:
+        _redis_pipe.scan(cursor=new_index, count=_count)
+        new_index, scan_result_l = _redis_pipe.execute()[0]
+        print new_index, scan_result_l
+
+    end_time = time.time()
+    print 'Duration:{}'.format(end_time - start_time)
+````
+
+###scan测试结果
+
+####不使用pipeline
+
+scan查询总行数: 484,074 行  
+Duration:25.0150001049 秒
+
+scan查询总行数: 2,253,861 行  
+Duration:178.35700011 3秒
+
+####使用pipeline
+
+scan查询总行数: 484,074 行  
+Duration:24.1370000839 秒
+
+scan查询总行数: 2,253,861 行  
+Duration:185.082999945 秒
+
+####总结
+使用get进行批量操作时, 一定要在pipeline之下进行; 
+
+而使用scan进行数据库遍历时, pipeline对效率提升非常有限, 
+
+在上面的测试中, 数据量较大的情况下, 使用pipeline反而会稍慢一点.
