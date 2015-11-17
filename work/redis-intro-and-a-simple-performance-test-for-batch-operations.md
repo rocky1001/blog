@@ -1,7 +1,7 @@
 Title: Redis简介和批量操作的性能对比测试
 Date: 2015-11-16 16:17
 Category: work
-Tags: redis, performance, python
+Tags: redis, pipeline, get, scan, performance, python
 Summary: 使用python版本的redis api进行批量操作的性能对比测试和记录.
 Slug: redis-intro-and-a-simple-performance-test-for-batch-operations
 
@@ -83,17 +83,14 @@ print 'Duration:{}'.format(end_time - start_time)
 
 ###get测试结果
 
-####不使用pipeline
-
+不使用pipeline:  
 时间长到无法忍受, 在经过10分钟漫长的等待后, 最终不得不kill掉进程...
 
-####使用pipeline
-
+使用pipeline:  
 scan查询总行数: 246,455 行
-
 Duration:22.121999979 秒
 
-####使用pipeline,查看批量查询结果代码
+###使用pipeline,查看批量查询结果代码
 
 ````python
 result = redis_pipe.execute()
@@ -137,25 +134,19 @@ def scan_by_pipe(_redis_pipe, _count=1000):
 
 ###scan测试结果
 
-####不使用pipeline
+|数据总行数(行)|每次返回(条)|不使用pipeline, 花费时间(秒)|使用pipeline, 花费时间(秒)|
+|----:|----:|----:|----:|
+|484,074|1,000|25.015|24.137|
+|2,253,861|1,000|178.357|185.082|
+|2,253,861|10,000|164.241|175.772|
+|2,253,861|50,000|163.962|163.033|
+|2,253,861|100,000|203.056|288.501|
 
-scan查询总行数: 484,074 行  
-Duration:25.0150001049 秒
+###总结
 
-scan查询总行数: 2,253,861 行  
-Duration:178.35700011 3秒
+* 使用get进行批量操作时, 一定要在pipeline之下进行
 
-####使用pipeline
+* 使用scan进行数据库遍历时, pipeline对效率提升非常有限,   
+在上面的测试中, 数据量较大的情况下, 使用pipeline反而会稍慢一点
 
-scan查询总行数: 484,074 行  
-Duration:24.1370000839 秒
-
-scan查询总行数: 2,253,861 行  
-Duration:185.082999945 秒
-
-####总结
-使用get进行批量操作时, 一定要在pipeline之下进行; 
-
-而使用scan进行数据库遍历时, pipeline对效率提升非常有限, 
-
-在上面的测试中, 数据量较大的情况下, 使用pipeline反而会稍慢一点.
+* scan中一次性获取的数据并不是越多越好
