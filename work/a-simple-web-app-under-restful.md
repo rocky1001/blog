@@ -37,7 +37,63 @@ Slug: a-simple-web-app-under-restful
   
 在这种架构下, 一个数据表的CRUD操作就会涉及到3-4个API接口, 同时每个接口需要有准确合理的数据和返回值,
 
-虽然是个小Demo项目, API接口文档可足足写了11页.
+虽然是个小Demo项目, API接口文档可足足写了11页, 下面是这个文档的几个小片段:
+````
+数据分析->人群属性->基本属性数据接口
+接口：/console/crowd/basic
+方法：GET
+参数：无
+返回：
+{
+“性别”: {“category”: [“男性”,
+                “女性”,
+                “未知”
+      		   ],
+       “data”: [{“name”: “男性”, “value”: 0.46},
+            {“name”: “女性”, “value”: 0.45},
+            {“name”: “未知”, “value”: 0.09}
+      	   ]
+		}
+“人生阶段”:{…},
+  …
+}
+
+数据分析->客流分析->频次时长接口
+接口：/console/customerflow/freq
+方法：GET
+参数：
+	start_date: 开始日期
+	end_date: 结束日期
+	device_id: 店铺ID
+返回：
+{  //进店频次
+freq: {“category”: [
+				“category_1” 	//1次
+				“category_2”	//2-3次
+				“category_3”	//4-5次
+				“category_4”	//6次以上
+      		   ],
+       “data”: [{“name”: “category_1”, “value”: 1},
+            {“name”: ” category_2”, “value”: 2},
+            {“name”: “category_4”, “value”: 4},
+				…
+      	   ]
+		},
+//停留时长
+stay: {“category”: [
+				“category_1”		//0-10分钟
+				“category_2”		//10-30分钟
+				“category_3”		//30-60分钟
+				“category_4”		//60分钟以上
+      		   ],
+       “data”: [{“name”: “category_1”, “value”: 2},
+            {“name”: ” category_2”, “value”: 3},
+            {“name”: “category_4”, “value”: 4},
+				…
+      	   ]
+		}
+
+````
 
 ##优缺点的思考
 
