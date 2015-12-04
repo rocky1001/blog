@@ -1,5 +1,5 @@
 Title: Python coding中遇到的一些坑
-Date: 2015-12-3 18:22
+Date: 2015-12-4 10:35
 Category: work
 Tags: python, pitfall
 Summary: 分享Python coding中遇到的一些坑.
