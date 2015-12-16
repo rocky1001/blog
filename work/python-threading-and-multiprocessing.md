@@ -138,6 +138,64 @@ Lock对象提供了acquire()和release()方法,
 
 需要在使用前对资源及其操作加锁, 并在使用后释放锁, 使得其他进程/线程可以使用该资源.
 
+下面是一个多线程写入文件, 并且使用Lock的小例子:
+````python
+# coding=utf-8
+from multiprocessing.dummy import Process, Manager, Queue
+from random import randrange
+import threading
+import time
+
+__author__ = 'rockyqi1001@gmail.com'
+
+
+def write_file(_queue, _lock, _file):
+    name = threading.currentThread().getName()
+    print name, 'Starting'
+
+    while True:
+        data = _queue.get()
+        if data is 'DONE':
+            break
+        else:
+            try:
+                time.sleep(randrange(1, 5))
+                _lock.acquire()
+                _file.write(str(data) * 10000)
+                _file.write('\n')
+                _queue.task_done()
+            finally:
+                _lock.release()
+                pass
+
+    print name, 'Exiting'
+
+
+PROCESSES_NUM = 10
+
+if __name__ == '__main__':
+    queue = Queue()
+    lock = Manager().Lock()
+
+    for i in range(0, PROCESSES_NUM):
+        queue.put(i)
+
+    # put poison pill
+    for i in range(0, PROCESSES_NUM):
+        queue.put('DONE')
+
+    f = open('mp_write_test.txt', 'w')
+    work_list = [Process(target=write_file, name='Worker_%s' % i, args=(queue, lock, f)) for i in
+                 range(0, PROCESSES_NUM)]
+    for worker in work_list:
+        worker.start()
+
+    for worker in work_list:
+        worker.join()
+
+    f.close()
+````
+
 ###Manager
 Manager对象提供了可在多进程间,安全地共享使用的多种数据结构, 例如:
 
