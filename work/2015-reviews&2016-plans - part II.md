@@ -2,7 +2,7 @@ Title: 2015年终总结与2016年度计划 - 第二部分
 Date: 2016-01-19 17:09
 Category: work
 Tags: annual review, annual plan
-Summary: 总结个人技能和能力.
+Summary: 总结个人技能和项目经历.
 Slug: 2015-reviews&2016-plans - part II
 
 本篇是2015年度总结与2016年度计划的第二篇, 

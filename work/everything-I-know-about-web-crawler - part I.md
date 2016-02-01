@@ -1,5 +1,5 @@
 Title: 关于爬虫的那些事 - 第一部分
-Date: 2016-01-27 16:30
+Date: 2016-01-27 14:30
 Category: work
 Tags: web crawler, web spider
 Summary: 介绍我所理解的网络爬虫.
@@ -9,7 +9,7 @@ Slug: everything-I-know-about-web-crawler - part I
 
 在2013年, 这个比例是大于60%, 如下图所示:  
 <div class="picture">
-![2013年互联网爬虫流量报告]({filename}/images/work/2013-web-spider-traffic-report "2013年互联网爬虫流量报告")  
+![2013年互联网爬虫流量报告]({filename}/images/work/2013-web-spider-traffic-report.jpg "2013年互联网爬虫流量报告")  
 </div> 
 
 可以看出爬虫流量的比例呈逐渐上升的态势.
@@ -31,35 +31,45 @@ Slug: everything-I-know-about-web-crawler - part I
 
 ##爬虫的关键技术点
 ###浏览器伪装
+目的是将爬虫的请求伪装成真实的浏览器所发出的请求,越真实越好,这里的要点有:
 
+* 设置User-Agent数据
+* 保存并设置cookies数据
 
+无论哪种Http client工具, 肯定都支持上述两种数据的设置.
 
 ###代理IP地址池
+服务端将UA和用户真实IP结合起来判断, 进行访问频次限制等.
 
+在爬虫抓取频率不是很高的时候, 基本不用担心这个问题.
 
+不过一旦遇到IP被封禁的时候, 就需要使用代理IP了.
 
-###模拟登录/Cookies伪装
+网上可以找到很多免费的代理IP, 不过大多都不是很稳定, 
 
+要想使用稳定的代理IP有两个办法:
 
+1. 万能的淘宝
+2. 自建VPS代理(搬瓦工等运营商有很便宜的独立IP的VPS方案)
 
 ###欲速则不达
+爬虫比拼的并不是抓取速度, 很多时候,抓取速度过频繁都会被封禁.
 
-
-
+对于爬虫来说,第一任务是获得目标数据, 第二任务是稳定持续的抓取.
 
 ##一些开源的爬虫框架
+我在工作中接触过, 也真正使用过的开源爬虫框架有如下一些:
 
 * crawler4j(Java)
-* scapy(Python)
+* scrapy(Python)
 * pyspider(Python)
 
 ##爬虫框架的基本结构
 
-原始输入（种子URL）
+* 原始输入(种子URL)
 
-生产者：种子URL解析并存储入待爬取列表
+* 生产者: 对(种子)URL解析并存储入待爬取列表
 
-消费者：读取待爬取列表URL，完成爬取，并调用生产者的模块，解析新的URL继续存入待爬取列表中
+* 消费者: 读取待爬取列表URL, 完成爬取, 并调用生产者的模块, 解析新的URL继续存入待爬取列表中
 
-输出爬取结果
-
+* 输出抓取结果
