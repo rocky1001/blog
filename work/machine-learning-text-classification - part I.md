@@ -95,10 +95,32 @@ for word in word_segs:
 
 在训练数据和分词工具(包括词典)都准备好了之后, 可以说已经成功了一半了.
 
-###文本分类算法
-在常用的机器学习工具集中, 提供了多种分类算法可以用于文本分类,  
+###文本分类模型的训练
+文本分类属于有监督的机器学习(Supervised Learning), 
 
-如何对这些分类算法进行简单评估, 从而选择一个效果最好的呢?
+在sklearn的官网上, 对该流程给出了详细的[流程图说明], 如下图所示:(http://www.astroml.org/sklearn_tutorial/general_concepts.html "")(到API级别)
+<div class="picture">
+![有监督学习流程图]({filename}/images/work/ML_SL_flow_chart_1.png "有监督学习流程图")  
+</div> 
+<div class="picture">
+![有监督学习流程API]({filename}/images/work/ML_SL_flow_chart_2.png "有监督学习流程API")  
+</div> 
+
+此外, sklearn还提供了常用的文本分类算法类, 有如下一些:
+```python
+from sklearn.linear_model import RidgeClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.svm import LinearSVC
+from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import Perceptron
+from sklearn.linear_model import PassiveAggressiveClassifier
+from sklearn.naive_bayes import BernoulliNB, MultinomialNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neighbors import NearestCentroid
+from sklearn.ensemble import RandomForestClassifier
+```
+
+那么现在问题来了: 如何对这些文本分类算法进行评估, 从而选择一个效果最好的呢?
 
 sklearn已经为我们想到了, 并且给出了[demo代码](http://scikit-learn.org/stable/auto_examples/text/document_classification_20newsgroups.html#example-text-document-classification-20newsgroups-py "文本分类算法对比demo代码").
  
@@ -109,11 +131,19 @@ sklearn已经为我们想到了, 并且给出了[demo代码](http://scikit-learn
 ![汽车之家训练数据不同分类算法结果对比]({filename}/images/work/text_classifier_comparison.png "汽车之家训练数据不同分类算法结果对比")  
 </div> 
 
-###测试
-除了使用原始训练集划分的测试集(总量的20%)进行测试之外, 我还抓取了几百个汽车类新闻和图片的URL内容(不在训练数据集内的), 并做了手工分类(分了一早上, 眼睛都看花了 XD );
+从测试结果来看, LinearSVC分类算法的效果最好, 下面的测试结果就是基于LinearSVC算法给出的.
 
-再次用训练好的模型进行分类测试, 并将模型分类结果与我手工分类的结果进行了比较, 得到的结果如下:
+###测试
+在选定算法并完成分类模型的训练后, 就可以拿一些待预测的数据, 用训练好的模型去做一下分类了.
+
+这里, 除了使用原始训练集划分的测试集(总量的20%)进行测试之外, 我还抓取了几百个汽车类新闻和图片的URL内容(不在训练数据集内的), 并做了手工分类(分了一早上, 眼睛都看花了 XD );
+
+用训练好的模型进行分类测试, 并将模型分类结果与我手工分类的结果进行了比较, 得到的结果如下:
 ```shell
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+          intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+          multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+          verbose=0)
 -------------------------------------------------------
                 precision    recall  f1-score   support
 
