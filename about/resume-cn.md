@@ -1,5 +1,5 @@
-Title: 我的个人简历
-Date: 2016-01-19 17:37
+Title: 简历
+Date: 2016-02-02 15:35
 Category: about
 Tags: resume
 Summary: My resume in Chinese.
@@ -9,14 +9,14 @@ Slug: rocky-resume-in-Chinese
 **地区:** Xi’an, China
 
 ----
-##Summary	   
-* Worked as Java developer for 3 years, mainly on J2EE related projects.
+##摘要	   
+* 三年.
 
 * Worked as Data analyst for 1 year using Hadoop(MRv1), Hive and Pig.
 
 * Working as Software developer for 2 years in Python. 
  
-###Highlights	
+###主要技能	
 * Main skills: Java, Python, SQL, JavaScript, Html, Bash, SOAP/RESTful.
 
 * Others: Linux( CentOS, Ubuntu), MySQL, Redis, Hadoop, Socket, TCP, HTTP.

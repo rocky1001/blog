@@ -14,7 +14,7 @@ Slug: rocky-resume-in-English
 
 * Worked as Data analyst for 1 year using Hadoop(MRv1), Hive and Pig.
 
-* Working as Software developer for 2 years in Python. 
+* Working as Software developer for more than 2 years in Python. 
  
 ###Highlights	
 * Main skills: Java, Python, SQL, JavaScript, Html, Bash, SOAP/RESTful.
