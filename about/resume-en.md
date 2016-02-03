@@ -33,16 +33,16 @@ Slug: rocky-resume-in-English
 2012.10 to Today:  
 **Senior Software Developer @Hylink digital advertising  Co. LTD.**  
 
-Project: Web spider(crawling huge number of URLs content data for demographic label analysis)  
+Web spider(crawling huge number of URLs content data for demographic label analysis)  
 Worked as major developer in the team, includes:
 
-* Design and build a multi-processing web spider for URL content extraction(First in Java and refactored to Python later, data stored in Redis and HDFS).
+* Design and build a multi-processing web spider for URL content extraction(First in Java and refactored to Python later, data stored in HDFS).
 
 * Processing 2 million URLs in 24 hours on a normal quad-core PC with 50Mbit bandwidth.
 
 * Text data crawled used to build the text classification model, the model helped us on demographic labeling eventually.
 
-Project: Mobile application advertising system  
+Mobile application advertising system  
 Worked as team leader and major developer in the team, includes:
 
 * Design and build advertising data management platform (B/S arch in Python, Django).
@@ -53,7 +53,7 @@ Worked as team leader and major developer in the team, includes:
 
 * Design and build demographic labeling system for mobile users, which analyzing the delivery log and labeled the mobile user, then the label data can be used to guide the ad delivery for better effect.
 
-Project: Data Management Platform(Ad delivery data storage and analysis platform)  
+Data Management Platform(Ad delivery data storage and analysis platform)  
 Worked as major developer in the team, includes:
 
 * Analyzing delivery data with different dimension combinations (Mainly using Hive and Elastic Search).
@@ -69,7 +69,7 @@ Worked as major developer in the team, includes:
 2009.7 to 2012.10  
 **Java Software Developer @Datang mobile communication equipment Co. LTD.**
 
-Project: HSS(Home Subscriber Server) development for LTE(4G) network  
+HSS(Home Subscriber Server) development for LTE(4G) network  
 Worked as major developer in the team(then team leader at early 2012), includes:
 
 * Design and implementation of HSS database web console (under Struts, Spring and Hibernate framework, running on CentOS 5.9). The database(with millions telecom users data stored in) based on Oracle 9i relied on this web console to do all data configuration work.
@@ -83,9 +83,7 @@ Worked as major developer in the team(then team leader at early 2012), includes:
 ----
 ##Education	
 2006 to 2009  
-Master of Communication and Information System  
-[Xi’an Jiaotong University](http://www.xjtu.edu.cn "Xi’an Jiaotong University")
+Master of Communication and Information System  @[Xi’an Jiaotong University](http://www.xjtu.edu.cn "Xi’an Jiaotong University")
 
 2002 to 2006  
-Bachelor of  Information Engineering  
-[Jinan University](http://www.jnu.edu.cn "Jinan University")
+Bachelor of  Information Engineering  @[Jinan University](http://www.jnu.edu.cn "Jinan University")
