@@ -1,8 +1,8 @@
 Title: 简历
-Date: 2015-12-31 15:35
+Date: 2015-12-31 15:43
 Category: about
 Tags: resume
-Summary: 我的个人简历.
+Summary: 我的简历.
 Slug: rocky-resume-in-Chinese
 
 **电子邮件:** [rockychi1001@gmail.com](mailto:rockychi1001@gmail.com "my email")  
@@ -10,7 +10,7 @@ Slug: rocky-resume-in-Chinese
 
 ----
 ##摘要	   
-* 三年Java开发经验(包括基于SSH框架的开发与部署, 独立多线程功能模块开发等).
+* 三年Java开发经验(包括基于SSH框架的应用开发与部署, 独立多线程功能模块开发等).
 
 * 一年Hadoop平台和工具开发经验(基于MRv1, Hive和Pig).
 
@@ -19,7 +19,7 @@ Slug: rocky-resume-in-Chinese
 #####主要技能	
 * 语言: Java, Python, SQL, JavaScript, Html, Bash.
 
-* 其他: Linux( CentOS, Ubuntu), MySQL, Redis, Hadoop, Elastic Search, Socket, TCP, HTTP, SOAP/RESTful.
+* 其他: Linux(CentOS, Ubuntu), MySQL, Redis, Hadoop, OpenResty(Lua), TCP, HTTP, SOAP, RESTful.
 
 * 英语: CET-6(79/100), CET-4(87.5/100), National College English Oral Test(B+).
 
@@ -41,6 +41,17 @@ Slug: rocky-resume-in-Chinese
 
 * 提取的正文内容数据用于训练文本分类算法模型并做人群标签分析.
 
+#####买车通产品(汽车行业垂直门户网站) 
+作为产品负责人，完成了：
+
+* 需求收集与整理.
+
+* 产品架构设计，接口功能设计.
+
+* 研发外包公司的招标与评审.
+
+* 产品宣讲.
+
 #####移动APP广告系统  
 前期作为主要研发人员, 后期作为研发负责人, 主要完成了:
 
@@ -55,16 +66,25 @@ Slug: rocky-resume-in-Chinese
 #####数据管理平台(DMP, 广告投放数据存储和分析平台)  
 作为主要研发人员, 完成了:
 
-* 根据不同的维度组合进行投放数据分析并给出报告(主要使用Hive, 并且搭建了Elastic Search供即时查询使用).
+* 根据不同的维度组合进行投放数据分析并给出报告(主要使用Hive, 另外也尝试了Elastic Search/Apache Kylin供即时查询使用).
 
-* 设计并开发了cookie mapping服务器, 用于与ad exchanger交换cookie数据. 该服务可以处理每秒超过1000次的HTTP cookie mapping消息.
+* 设计并开发了cookie mapping服务器, 用于与ad exchanger交换cookie数据. 
 
 * 基于机器学习的文本分类算法, 为用户打上人群标签, 主要有如下一些工作:
 
     1) 使用网页爬虫获取分类算法需要的训练语料数据  
     2) 整理专业词汇的词典, 供中文分词工具分词使用  
     3) 使用Python机器学习包sklearn中提供的文本分类算法进行中文文本分类, 分类结果就是人群标签
-   
+  
+#####高并发Web功能模块设计与开发
+作为主要研发人员, 完成了:
+
+* 框架选型(OpenResty)与业务逻辑代码开发(使用Lua开发并嵌入OpenResty).
+
+* 使用该框架重构了上面的cookie mapping功能，在普通4核PC上面测试可以处理20K+ QPS的消息.
+
+* 使用该框架实现了DMP平台对外人群标签实时查询接口	
+
 2009.7 至 2012.10: **软件研发工程师 @大唐移动通信设备有限公司**
 
 #####LTE(4G)通信网络中的HSS设备(用户归属数据服务器)研发

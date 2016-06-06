@@ -19,7 +19,7 @@ Slug: rocky-resume-in-English
 #####Highlights	
 * Main: Java, Python, SQL, JavaScript, Html, Bash.
 
-* Others: Linux( CentOS, Ubuntu), MySQL, Redis, Hadoop, Elastic Search, Socket, TCP, HTTP, SOAP/RESTful.
+* Others: Linux(CentOS, Ubuntu), MySQL, Redis, Hadoop, OpenResty(Lua), TCP, HTTP, SOAP, RESTful.
 
 * English: CET-6(79/100), CET-4(87.5/100), National College English Oral Test(B+).
 
@@ -52,19 +52,28 @@ Worked as team leader and major developer in the team, includes:
 
 * Design and build demographic labeling system for mobile users, which analyzing the delivery log and labeled the mobile user, then the label data can be used to guide the ad delivery for better effect.
 
-#####Data Management Platform(Ad delivery data storage and analysis platform)  
+#####Data Management Platform(DMP, user data storage and analysis platform)  
 Worked as major developer in the team, includes:
 
-* Analyzing delivery data with different dimension combinations (Mainly using Hive and Elastic Search).
+* Analyzing delivery data with different dimension combinations (Mainly using Hive, tried Elastic Search/Apache Kylin for OLAP).
 
-* Design and build cookie mapping server, mapping the cookie data with ad exchangers. The server can handles more than 1000 HTTP requests per second.
+* Design and build cookie mapping server, mapping the cookie data with ad exchangers.
 
 * Implementation of user demographic labeling with machine-learning, includes:
 
     a. using web spider to get the training data for algorithms.  
     b. collect particular words dictionary for chinese word segmentation.  
     c. using machine-learning algorithms provided by sklearn(a toolbox written in Python) for chinese document classification.
-    
+  
+#####High performance WEB application module
+Worked as major developer, includes:
+
+* Research and choose the main framework(OpenResty), web application development(with Lua).
+
+* Refactoring cookie mapping server, the module now can handle 20K+ QPS in a quad-core PC.
+
+* Implementation of DMP real-time query interface with this framework.
+
 2009.7 to 2012.10: **Java Software Developer @Datang mobile communication equipment Co. LTD.**
 
 #####HSS(Home Subscriber Server) development for LTE(4G) network  
