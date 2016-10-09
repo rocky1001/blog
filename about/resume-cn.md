@@ -1,5 +1,5 @@
 Title: 简历
-Date: 2015-12-31 15:43
+Date: 2016-10-08 09:53
 Category: about
 Tags: resume
 Summary: 我的简历.
@@ -10,16 +10,16 @@ Slug: rocky-resume-in-Chinese
 
 ----
 ##摘要	   
-* 三年Java开发经验(包括基于SSH框架的应用开发与部署, 独立多线程功能模块开发等).
+* 三年Java开发经验(基于SSH框架的应用开发与部署, 独立多线程功能模块开发等)
 
-* 一年Hadoop平台和工具开发经验(基于MRv1, Hive和Pig).
+* 一年Hadoop平台数据分析程序开发经验(基于MRv1, Hive和Pig)
 
-* 三年Python开发经验(包括Django和Flask开发与部署, 独立功能模块开发, SOAP/RESTful接口开发等).
+* 三年Python开发经验(基于Django和Flask的web应用开发与部署, 独立功能模块开发, RESTful API开发等)
  
 #####主要技能	
-* 语言: Java, Python, SQL, JavaScript, Html, Bash.
+* 语言: Python, Java, SQL, JavaScript, Bash, Lua.
 
-* 其他: Linux(CentOS, Ubuntu), MySQL, Redis, Hadoop, OpenResty(Lua), TCP, HTTP, SOAP, RESTful.
+* 其他: Linux(CentOS, Ubuntu), MySQL, Redis, Hadoop, OpenResty, TCP, HTTP, SOAP, RESTful.
 
 * 英语: CET-6(79/100), CET-4(87.5/100), National College English Oral Test(B+).
 
@@ -32,7 +32,49 @@ Slug: rocky-resume-in-Chinese
 ##主要项目
 2012.10 至今: **高级软件研发工程师 @华扬联众数字技术股份有限公司**  
 
-#####Web爬虫(抓取URL内容用于人群标签分析)  
+#####大数据可视化分析平台设计与开发
+作为主要设计与开发人员, 完成了:
+
+* 开源框架选型与测试, 最终选定了 Airbnb Caravel + Apache Kylin .
+
+* 对Caravel进行二次开发并已开源（https://github.com/rocky1001/caravel/tree/caravel-kylin）.
+
+* 使用该平台实现了海量数据的快速可视化分析
+
+#####移动APP广告系统  
+前期作为主要研发人员, 后期作为研发负责人, 主要完成了:
+
+* 设计并开发移动广告数据管理管理平台(BS架构, 基于Django框架实现).
+
+* 开发移动app广告投放日志收集和分析系统. 系统内部采用RESTful接口进行模块间通信, SFTP接口完成每日日志的自动收集, 使用Hadoop和Hive完成日志分析.
+
+* 系统管理的广告数据每日投放量(展示数)大于200万次, 每天收集的日志大于10GB, 这些日志在经过分析后, 用于优化下一阶段的广告投放.
+
+* 设计并实现了针对移动用户的人群标签系统, 主要用于分析投放日志并给移动用户打上相应的标签, 这些标签可以被用于精准广告投放.
+
+#####数据管理平台(DMP, 广告投放数据存储和分析平台)  
+作为主要研发人员, 完成了:
+
+* 根据不同的维度组合进行投放数据分析并给出报告(主要使用Hive, 另外也尝试了Elastic Search/Apache Kylin供即时查询使用).
+
+* 设计并开发了cookie mapping服务器(基于OpenResty框架), 用于与ADX交换cookie数据. 
+
+* 基于机器学习的文本分类算法, 为用户打上人群标签, 主要有如下一些工作:
+
+    1) 使用网页爬虫获取分类算法需要的训练语料数据  
+    2) 整理专业词汇的词典, 供中文分词工具分词使用  
+    3) 使用Python机器学习包sklearn中提供的文本分类算法进行中文文本分类, 分类结果就是人群标签
+
+#####高并发Web功能模块设计与开发
+作为主要研发人员, 完成了:
+
+* 框架选型(OpenResty)与业务逻辑代码开发(使用Lua开发并嵌入OpenResty).
+
+* 使用该框架重构了上面的cookie mapping功能，在普通4核PC上面测试可以处理20K+ QPS的消息.
+
+* 使用该框架实现了DMP平台对外人群标签实时查询接口
+
+#####分布式Web爬虫(抓取URL内容用于人群标签分析)  
 作为主要研发人员, 完成了:
 
 * 设计并实现一个多线程的Web网页爬虫, 并可以提取网页的正文内容(开始用Java实现, 后来用Python做了重构; 抓取数据存储在HDFS中).
@@ -51,39 +93,7 @@ Slug: rocky-resume-in-Chinese
 * 研发外包公司的招标与评审.
 
 * 产品宣讲.
-
-#####移动APP广告系统  
-前期作为主要研发人员, 后期作为研发负责人, 主要完成了:
-
-* 设计并开发移动广告数据管理管理平台(BS架构, 基于Django框架实现).
-
-* 开发移动app广告投放日志收集和分析系统. 系统内部采用RESTful接口进行模块间通信, SFTP接口完成每日日志的自动收集, 使用Hadoop和Hive完成日志分析.
-
-* 系统管理的广告数据每日投放量(展示数)大于200万次, 每天收集的日志大于10GB, 这些日志在经过分析后, 用于优化下一阶段的广告投放.
-
-* 设计并实现了针对移动用户的人群标签系统, 主要用于分析投放日志并给移动用户打上相应的标签, 这些标签可以被用于精准广告投放.
-
-#####数据管理平台(DMP, 广告投放数据存储和分析平台)  
-作为主要研发人员, 完成了:
-
-* 根据不同的维度组合进行投放数据分析并给出报告(主要使用Hive, 另外也尝试了Elastic Search/Apache Kylin供即时查询使用).
-
-* 设计并开发了cookie mapping服务器, 用于与ad exchanger交换cookie数据. 
-
-* 基于机器学习的文本分类算法, 为用户打上人群标签, 主要有如下一些工作:
-
-    1) 使用网页爬虫获取分类算法需要的训练语料数据  
-    2) 整理专业词汇的词典, 供中文分词工具分词使用  
-    3) 使用Python机器学习包sklearn中提供的文本分类算法进行中文文本分类, 分类结果就是人群标签
   
-#####高并发Web功能模块设计与开发
-作为主要研发人员, 完成了:
-
-* 框架选型(OpenResty)与业务逻辑代码开发(使用Lua开发并嵌入OpenResty).
-
-* 使用该框架重构了上面的cookie mapping功能，在普通4核PC上面测试可以处理20K+ QPS的消息.
-
-* 使用该框架实现了DMP平台对外人群标签实时查询接口	
 
 2009.7 至 2012.10: **软件研发工程师 @大唐移动通信设备有限公司**
 
@@ -101,7 +111,7 @@ Slug: rocky-resume-in-Chinese
 ----
 ##教育
 2006.9 至 2009.6  
-获得 通信与信息系统专业 硕士学位@[西安交通大学](http://www.xjtu.edu.cn "Xi’an Jiaotong University")
+获得 通信与信息系统专业 硕士学位@[西安交通大学](http://www.xjtu.edu.cn "西安交通大学")
 
-2002.9 to 2006.6  
-获得 信息工程专业 学士学位@[暨南大学](http://www.jnu.edu.cn "Jinan University")
+2002.9 至 2006.6  
+获得 信息工程专业 学士学位@[暨南大学](http://www.jnu.edu.cn "暨南大学")
